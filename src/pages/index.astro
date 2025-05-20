@@ -3,12 +3,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
+import { getGitHubRepos } from "../lib/github";
+import { GITHUB_USERNAME, GITHUB_MAX_PROJECTS } from "../config";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
 const last_posts = posts.slice(0, 3);
+
+// Fetch GitHub repositories
+const githubRepos = await getGitHubRepos(GITHUB_USERNAME);
+const projects = githubRepos.slice(0, GITHUB_MAX_PROJECTS);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
@@ -18,13 +24,14 @@ const last_posts = posts.slice(0, 3);
     <div class="text-3xl py-3 font-bold">Software Engineer</div>
     <div class="py-2">
       <text class="text-lg">
-        This is <b>Astrofy</b> a free and open-source template for your Personal
-        Portfolio Website built with Astro and TailwindCSS. Create in minutes a website
-        with Blog, CV, Project Section, Store and RSS Feed. I hope you find it useful!
+        I am in my final year of software engineering at the University of
+        Canterbury. I have experience working in an Agile environment using
+        languages like Java, Python and C, and technologies such as React,
+        Angular, and Spring.
       </text>
     </div>
     <div class="mt-8">
-      <a class="btn" href="https://twitter.com/manuelernestog" target="_blank">
+      <a class="btn" href="https://github.com/sergeyanton" target="_blank">
         Let's connect!</a
       >
     </div>
@@ -34,26 +41,22 @@ const last_posts = posts.slice(0, 3);
     <div class="text-3xl w-full font-bold mb-2">Latest Projects {"</>"}</div>
   </div>
 
-  <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
-  <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
-  />
+  {
+    projects.length > 0 ? (
+      projects.map((project, index) => (
+        <>
+          <HorizontalCard
+            title={project.name}
+            desc={project.description || "No description provided"}
+            url={project.html_url}
+            badge={project.language}
+            target="_blank"
+          />
+          {index < projects.length - 1 && <div class="divider my-0" />}
+        </>
+      ))
+    ) : (
+      <div class="text-lg text-center">No projects found. Please check my </div>
+    )
+  }
 </BaseLayout>

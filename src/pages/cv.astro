@@ -4,15 +4,36 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 ---
 
 <BaseLayout title="Resume" sideBarActiveItemID="cv">
-  <div class="mb-5">
+  <div class="mb-5 flex flex-col sm:flex-row sm:justify-between items-start">
     <div class="text-3xl w-full font-bold">Profile</div>
+    <div class="flex gap-3 mt-3 sm:mt-0">
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-1.5 px-3 text-sm rounded-md flex items-center whitespace-nowrap"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 mr-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+            clip-rule="evenodd"></path>
+        </svg>
+        View CV
+      </a>
+    </div>
   </div>
 
   <div class="mb-10 text-justify">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    I am in my final year of software engineering at the University of
+    Canterbury. I am looking for an opportunity to gain experience and develop
+    my professional skills as a software engineer. I have experience working in
+    an Agile environment using languages like Java, Python and C, and
+    technologies like React, Angular, and Spring.
   </div>
 
   <div class="mb-5">
@@ -21,12 +42,8 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
-    />
-    <TimeLineElement
-      title="Title Name"
-      subtitle="[start year] to [end year] at [Study Center Name], [City], [Country]"
+      title="Bachelor of Engineering with Honours, majoring in Software Engineering"
+      subtitle="2025 at University of Canterbury, New Zealand"
     />
   </div>
 
@@ -36,57 +53,58 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <div class="time-line-container mb-10">
     <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
+      title="Summer Intern & Junior Software Developer at Kiwa Digital"
+      subtitle="From Nov 2024 to Current at Kiwa Digital"
     >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-    </TimeLineElement>
-    <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-    </TimeLineElement>
-    <TimeLineElement
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+      Developed multiple modules for an AI-powered SaaS platform that empowers
+      Indigenous Peoples to digitize, preserve, and interact with language and
+      cultural assets. The application enables users to securely upload files,
+      engage with them through AI, narrate documents, manage projects, teams,
+      and contacts, and create a member database for iwi via registration forms.
+      <ul class="list-disc mt-2 ml-6">
+        <li>
+          Collaborated with a cross-functional team to plan, design, and
+          implement new features.
+        </li>
+        <li>
+          Implemented an in-browser audio narration module using Web Audio API
+          and MediaRecorder.
+        </li>
+        <li>
+          Built project and team management features, including secure file
+          upload and access control.
+        </li>
+        <li>
+          Contributed to user registration and membership database modules.
+        </li>
+        <li>
+          Designed and implemented an API for integration of uploaded files with
+          the AI module.
+        </li>
+      </ul>
+      <div class="mt-2 text-sm text-gray-600">
+        Technologies: Angular, SpringBoot, MYSQL, Git, AWS
+      </div>
     </TimeLineElement>
   </div>
-
-  <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Certifications</div>
-  </div>
-
-  <ul class="list-disc mx-6 mb-10 grid gap-2">
-    <li>
-      <a href="#" target="_blank"> Certification Name (with link)</a>
-    </li>
-    <li>
-      <a href="#" target="_blank"> Certification Name (with link)</a>
-    </li>
-  </ul>
 
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Skills</div>
   </div>
 
-  <ul class="list-disc md:columns-5 columns-2 mx-6">
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
-    <li>Skill Name</li>
+  <ul class="list-disc md:columns-3 columns-2 mx-6">
+    <li>Python</li>
+    <li>Java</li>
+    <li>C</li>
+    <li>TypeScript</li>
+    <li>Rust</li>
+    <li>Agile</li>
+    <li>React</li>
+    <li>Angular</li>
+    <li>SpringBoot</li>
+    <li>NodeJS</li>
+    <li>Git</li>
+    <li>AWS</li>
+    <li>SQL</li>
   </ul>
 </BaseLayout>
