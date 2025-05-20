@@ -9,4 +9,4 @@ export const TRANSITION_API = true;
 
 // GitHub integration
 export const GITHUB_USERNAME = "sergeyanton";
-export const GITHUB_MAX_PROJECTS = 5;
+export const GITHUB_MAX_PROJECTS = 7;
