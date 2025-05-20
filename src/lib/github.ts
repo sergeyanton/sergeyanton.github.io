@@ -19,7 +19,7 @@ export async function getGitHubRepos(username: string): Promise<GitHubRepo[]> {
     }
       const repos = await response.json();
     // Filter out the sergeyanton repository
-    const filteredRepos = (repos as GitHubRepo[]).filter(repo => repo.name !== "sergeyanton");
+    const filteredRepos = (repos as GitHubRepo[]).filter(repo => repo.name !== "sergeyanton.github.io");
     return filteredRepos;
   } catch (error) {
     console.error('Error fetching GitHub repos:', error);
